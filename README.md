@@ -1,28 +1,31 @@
 # deliveroo-copy
 Dependencies to need
-1. Install Expo
+A tutorial from: https://www.youtube.com/watch?v=AkEnidfZnCU&t=3005s&ab_channel=SonnySangha
+Install Expo App: https://expo.dev/client
+
+
+
+1.  Install Expo
    ```sh
    npm i -g expo-cli
    ```
-2. Install Expo App
-   https://expo.dev/client
 
-
-3. Start server Expo
+02. Start server Expo
    ```sh
    expo start
    ```
-4. Help Documentation Press
 
+03. Help Documentation Press
    ```sh
    ?
    ```
-5. Install NativeWind CSS and configure
 
+04. Install NativeWind CSS and configure
    ```sh
    npm install tailwindcss-react-native
    npm install --save-dev tailwindcss
    ```
+
    ```sh
    // tailwind.config.js
    module.exports = {
@@ -35,24 +38,24 @@ Dependencies to need
    };
    ```
 
-6. Add the TailwindProvider
+05. Add the TailwindProvider
    ```sh
    import { TailwindProvider } from "tailwindcss-react-native"
    ```
 
-7. Configure your babel.config.js
+06. Configure your babel.config.js
    ```sh
    // babel.config.js
    module.exports = {
       plugins: ["tailwindcss-react-native/babel"],
    };
    ```
-8. Install React Navigation
+07. Install React Navigation
    ```sh
    npm install @react-navigation/native
    npx expo install react-native-screens react-native-safe-area-context
    ```
-9. Add the NavigationContainer
+08. Add the NavigationContainer
    ```sh
    import * as React from 'react';
    import { NavigationContainer } from '@react-navigation/native';
@@ -63,11 +66,13 @@ Dependencies to need
       );
    }
    ```
-10. Installing the native stack navigator library
+
+09. Installing the native stack navigator library
    ```sh
    npm install @react-navigation/native-stack
    ```
-11. Add the native stack navigator
-12. ```sh
-    import { createNativeStackNavigator } from '@react-navigation/native-stack';
-    ```# deliveroo-copy
+
+10. Add the native stack navigator
+   ```sh
+   import { createNativeStackNavigator } from '@react-navigation/native-stack';
+   ```
