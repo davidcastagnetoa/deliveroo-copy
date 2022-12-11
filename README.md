@@ -15,7 +15,7 @@ Install Expo App: https://expo.dev/client
 
 02. Start server Expo
    ```sh
-   expo start
+   expo startv
    ```
 
 03. Help Documentation Press
