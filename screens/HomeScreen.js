@@ -19,11 +19,11 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <SafeAreaProvider classname="bg-blue pt-5" style={styles.container}>
+    <SafeAreaProvider classname="pt-5" style={styles.container}>
       <Text className="text-red-500">
         {/* Header */}
         <View className="flex flex-row pb-3 items-center mx-4 space-x-2 bg-red">
-        {/* Logo */}
+          {/* Logo */}
           <Image
             source={require("../assets/sushiLogo.png")}
             className="h-12 w-12 bg-slate-100 p-4 rounded-full"
@@ -39,8 +39,19 @@ const HomeScreen = () => {
             </Text>
           </View>
           {/* User Icon */}
-          <UserIcon size={35} color="#FF0000"/>
+          <UserIcon size={35} color="#FF0000" />
         </View>
+
+        {/* Search */}
+
+        <View className='flex-row items-center space-x-2 pb-2 mx-4'>
+          <View className='flex-row space-x-2 flex-1 bg-slate-200 p-3'>
+            {/* <SearchIcon color='gray' size={20}/> */}
+            <TextInput placeholder='Restaurantes y Locales' keyboardType='defaut' />
+          </View>
+          <AdjustmentsHorizontalIcon color='#FF0000'></AdjustmentsHorizontalIcon>
+        </View>
+
       </Text>
     </SafeAreaProvider>
   );
@@ -51,6 +62,7 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight + 10,
     marginLeft: 8,
     marginRight: 8,
+    backgroundColor: '#FFFFFF'
   },
 });
 
