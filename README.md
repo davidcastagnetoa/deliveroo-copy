@@ -11,11 +11,12 @@ Install Expo App: https://expo.dev/client
 1.  Install Expo
    ```sh
    npm i -g expo-cli
+   npm install @expo/webpack-config@^0.17.2
    ```
 
 02. Start server Expo
    ```sh
-   expo startv
+   expo start
    ```
 
 03. Help Documentation Press
@@ -25,14 +26,16 @@ Install Expo App: https://expo.dev/client
 
 04. Install NativeWind CSS and configure
    ```sh
-   npm install tailwindcss-react-native
-   npm install --save-dev tailwindcss
+   npm add nativewind
+   npm add --dev tailwindcss
    ```
 
    ```sh
    // tailwind.config.js
    module.exports = {
       content: [
+         "./App.{js,jsx,ts,tsx}", 
+         "./<custom directory>/**/*.{js,jsx,ts,tsx}",
          "./screens/**/*.{js,ts,jsx,tsx}",
          "./pages/**/*.{js,ts,jsx,tsx}",
          "./components/**/*.{js,ts,jsx,tsx}",
@@ -50,6 +53,8 @@ Install Expo App: https://expo.dev/client
    ```sh
    // babel.config.js
    module.exports = {
+      presets: ["babel-preset-expo"],
+      plugins: ["nativewind/babel"],
       plugins: ["tailwindcss-react-native/babel"],
    };
    ```
