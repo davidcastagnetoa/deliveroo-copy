@@ -16,7 +16,6 @@ import {
 } from "react-native-heroicons/outline";
 import { MagnifyingGlassIcon, UserIcon } from "react-native-heroicons/solid";
 import Categories from "../components/Categories";
-
 const HomeScreen = () => {
   const navigation = useNavigation();
 
@@ -25,6 +24,7 @@ const HomeScreen = () => {
       headerShown: false,
     });
   }, []);
+
 
   return (
     <SafeAreaProvider style={styles.container}>
