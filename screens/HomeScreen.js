@@ -16,6 +16,7 @@ import {
 } from "react-native-heroicons/outline";
 import { MagnifyingGlassIcon, UserIcon } from "react-native-heroicons/solid";
 import Categories from "../components/Categories";
+import FeatureRow from "../components/FeatureRow";
 const HomeScreen = () => {
   const navigation = useNavigation();
 
@@ -24,7 +25,6 @@ const HomeScreen = () => {
       headerShown: false,
     });
   }, []);
-
 
   return (
     <SafeAreaProvider style={styles.container}>
@@ -78,6 +78,27 @@ const HomeScreen = () => {
         <Categories />
 
         {/* Feature Rows, or cards */}
+        {/* Recomendados */}
+        <FeatureRow
+          id='1231'
+          title="Recomendados"
+          description="Recomendados por nuestros socios"
+          featuredCategory="featured"
+        />
+        {/* Tasty Descuentos */}
+        <FeatureRow
+          id='1232'
+          title="Tasty Descuentos"
+          description="Descuentos y ofertas disponibles"
+          featuredCategory="featured"
+        />
+        {/* Ofertas cercanas */}
+        <FeatureRow
+          id='1233'
+          title="Ofertas cercanas"
+          description="Ofertas cercas de ti"
+          featuredCategory="featured"
+        />
       </ScrollView>
     </SafeAreaProvider>
   );
@@ -85,9 +106,9 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight + 10,
-    marginLeft: 6,
-    marginRight: 6,
+    marginTop: StatusBar.currentHeight + 12,
+    marginLeft: 0,
+    marginRight: 0,
     paddingTop: 6,
     backgroundColor: "#FFFFFF",
   },
