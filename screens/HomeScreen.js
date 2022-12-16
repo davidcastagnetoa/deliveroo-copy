@@ -37,7 +37,7 @@ const HomeScreen = () => {
         />
         {/* Text */}
         <View className="flex flex-1">
-          <Text className="font-bold text-[#B7B7B7] text-xs">
+          <Text className="font-bold text-[#333030] text-xs">
             Entregar Ahora
           </Text>
           <Text className="font-bold text-xl text-[#E42021]">
@@ -56,22 +56,24 @@ const HomeScreen = () => {
           <MagnifyingGlassIcon color="gray" size={20} />
           <TextInput
             placeholder="Restaurantes y Locales"
+            placeholderTextColor="#6F6F6F"
             keyboardType="defaut"
             className="flex flex-1 flex-row focus-visible:outline-none"
             style={{ outline: "none" }}
           />
         </View>
         <AdjustmentsHorizontalIcon
-          color="#FF0000"
+          color="#E42021"
           size={25}
         ></AdjustmentsHorizontalIcon>
       </View>
 
       {/* Body */}
       <ScrollView
-        className="bg-[#F2F2F2]"
+        className="bg-[#B7B7B7]"
         contentContainerStyle={{
           paddingBottom: 100,
+          gap: 2,
         }}
       >
         {/* Categories */}

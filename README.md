@@ -1,6 +1,6 @@
 # deliveroo-copy
 Dependencies to need
-Tutorial link: https://youtu.be/AkEnidfZnCU?t=3690
+Tutorial link: https://youtu.be/AkEnidfZnCU?t=3790
 
 Install Expo App: https://expo.dev/client
 
