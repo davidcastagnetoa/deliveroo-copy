@@ -29,7 +29,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaProvider style={styles.container}>
       {/* Header */}
-      <View className="flex flex-row pb-3 items-center mx-2 space-x-2 bg-red px-1">
+      <View className="flex flex-row pb-3 pt-1 items-center mx-2 space-x-2 bg-red px-1">
         {/* Logo */}
         <Image
           source={require("../assets/sushiLogo.png")}
