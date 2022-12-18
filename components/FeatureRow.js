@@ -5,7 +5,7 @@ import RestaurantCard from "./RestaurantCard";
 
 const FeatureRow = ({ id, title, description, featuredCategory }) => {
   return (
-    <View className="bg-white mx-1 rounded-md">
+    <View className="bg-white mx-2 rounded-md">
       <View className="mt-3 flex-row items-center justify-between px-4">
         <Text className="font-bold text-lg">{title}</Text>
         <ArrowRightIcon color="#E42021" />
@@ -18,7 +18,7 @@ const FeatureRow = ({ id, title, description, featuredCategory }) => {
           paddingHorizontal: 15,
         }}
         showsHorizontalScrollIndicator={false}
-        className="pt-4"
+        className="py-3"
       >
         {/* Restaurants Cards */}
         <RestaurantCard

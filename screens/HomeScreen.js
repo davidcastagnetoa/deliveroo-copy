@@ -70,10 +70,10 @@ const HomeScreen = () => {
 
       {/* Body */}
       <ScrollView
-        className="bg-[#B7B7B7]"
+        className="bg-[#B00020]"
         contentContainerStyle={{
           paddingBottom: 100,
-          gap: 2,
+          gap: 4,
         }}
       >
         {/* Categories */}
