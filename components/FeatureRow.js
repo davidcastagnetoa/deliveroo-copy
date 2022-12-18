@@ -33,6 +33,30 @@ const FeatureRow = ({ id, title, description, featuredCategory }) => {
           long={20}
           lat={0}
         />
+        <RestaurantCard
+          id={1234}
+          imgUrl="https://links.papareact.com/gn7"
+          title="Healthy Pokes"
+          rating={5.6}
+          genre="Japanesse"
+          address="123 Main Street"
+          short_description="Sushi Poke Bowl and anothers Japanesse Food"
+          dishes={{}}
+          long={20}
+          lat={0}
+        />
+        <RestaurantCard
+          id={1234}
+          imgUrl="https://links.papareact.com/gn7"
+          title="Healthy Pokes"
+          rating={5.6}
+          genre="Japanesse"
+          address="123 Main Street"
+          short_description="Sushi Poke Bowl and anothers Japanesse Food"
+          dishes={{}}
+          long={20}
+          lat={0}
+        />
       </ScrollView>
     </View>
   );
