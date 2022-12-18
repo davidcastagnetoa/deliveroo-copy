@@ -29,7 +29,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaProvider style={styles.container}>
       {/* Header */}
-      <View className="flex flex-row pb-3 pt-1 items-center mx-2 space-x-2 bg-red px-1">
+      <View style={{ elevation: 2 }}  className="flex flex-row pb-3 pt-1 items-center mx-2 space-x-2 bg-red px-1">
         {/* Logo */}
         <Image
           source={require("../assets/sushiLogo.png")}
@@ -51,7 +51,7 @@ const HomeScreen = () => {
 
       {/* Search */}
 
-      <View className="flex flex-row items-center space-x-2 pb-2 mx-2 px-1">
+      <View style={{ elevation: 2 }}  className="flex flex-row items-center space-x-2 pb-2 mx-2 px-1">
         <View className="flex flex-row flex-1 rounded-lg space-x-2 bg-[#F2F2F2] p-3">
           <MagnifyingGlassIcon color="gray" size={20} />
           <TextInput
@@ -72,8 +72,9 @@ const HomeScreen = () => {
       <ScrollView
         className="bg-[#B00020]"
         contentContainerStyle={{
-          paddingBottom: 100,
+          paddingBottom: 1,
           gap: 4,
+          elevation: -2
         }}
       >
         {/* Categories */}

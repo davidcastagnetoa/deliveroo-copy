@@ -5,7 +5,7 @@ import RestaurantCard from "./RestaurantCard";
 
 const FeatureRow = ({ id, title, description, featuredCategory }) => {
   return (
-    <View className="bg-white mx-2 rounded-md">
+    <View className="bg-white mx-2 rounded-md mb-2">
       <View className="mt-3 flex-row items-center justify-between px-4">
         <Text className="font-bold text-lg">{title}</Text>
         <ArrowRightIcon color="#E42021" />
@@ -15,7 +15,7 @@ const FeatureRow = ({ id, title, description, featuredCategory }) => {
       <ScrollView
         horizontal
         contentContainerStyle={{
-          paddingHorizontal: 15,
+          paddingHorizontal: 16,
         }}
         showsHorizontalScrollIndicator={false}
         className="py-3"
@@ -37,7 +37,7 @@ const FeatureRow = ({ id, title, description, featuredCategory }) => {
           id={1234}
           imgUrl="https://links.papareact.com/gn7"
           title="Healthy Pokes"
-          rating={5.6}
+          rating={4.9}
           genre="Japanesse"
           address="123 Main Street"
           short_description="Sushi Poke Bowl and anothers Japanesse Food"
@@ -49,7 +49,7 @@ const FeatureRow = ({ id, title, description, featuredCategory }) => {
           id={1234}
           imgUrl="https://links.papareact.com/gn7"
           title="Healthy Pokes"
-          rating={5.6}
+          rating={4.2}
           genre="Japanesse"
           address="123 Main Street"
           short_description="Sushi Poke Bowl and anothers Japanesse Food"

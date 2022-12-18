@@ -4,10 +4,6 @@ Tutorial link: https://youtu.be/AkEnidfZnCU?t=5092
 
 Install Expo App: https://expo.dev/client
 
-
-
-
-
 1.  Install Expo
    ```sh
    npm i -g expo-cli
@@ -83,4 +79,12 @@ Install Expo App: https://expo.dev/client
 10. Add the native stack navigator
    ```sh
    import { createNativeStackNavigator } from '@react-navigation/native-stack';
+   ```
+
+For Backend Install Sanity
+
+Install Sanity
+   ```sh
+   npm install -g @sanity/cli
+   sanity init --coupon sonny2020
    ```
