@@ -5,9 +5,9 @@ import {schemaTypes} from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'deliveroo-clone-yt',
+  title: 'deliveroo_clone_yt',
 
-  projectId: 'hvterr5i',
+  projectId: '51zni2s4',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],
