@@ -13,7 +13,7 @@ export default ({
       name: "short_description",
       type: "string",
       title: "Descripcion del plato",
-      validation: (Rule) => Rule.max(200),
+      validation: (Rule) => Rule.max(250),
     },
     {
       name: "restaurants",

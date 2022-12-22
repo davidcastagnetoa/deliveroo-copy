@@ -1,6 +1,10 @@
 # deliveroo-copy
 Dependencies to need
 Tutorial link: https://youtu.be/AkEnidfZnCU?t=5092
+Tutorial link: https://youtu.be/AkEnidfZnCU?t=4419 for sanity backend
+
+Sanity deploy tutorial
+https://youtu.be/XxXyfkrP298?t=16893
 
 Install Expo App: https://expo.dev/client
 
