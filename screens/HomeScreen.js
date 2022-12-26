@@ -30,21 +30,24 @@ const HomeScreen = () => {
   }, []);
 
   useEffect(() => {
-    sanityClient.fetch(`
+    sanityClient
+      .fetch(
+        `
     *[_type == "featured"] {
       ...,
       restaurants[]->{
         ...,
         dishes[]->
       }
-    }`).then(data =>{
-      setFeaturedCategories(data);
-    })
-  }, [])
+    }
+    `
+      )
+      .then((data) => {
+        setFeaturedCategories(data);
+      });
+  }, []);
 
   console.log(featuredCategories);
-  
-  
 
   return (
     <SafeAreaProvider style={styles.container}>
@@ -107,14 +110,14 @@ const HomeScreen = () => {
         <Categories />
 
         {/* Feature Rows, or cards */}
-        {featuredCategories?.map(category =>(
+        {featuredCategories?.map((category) => (
           <FeatureRow
-          key={category._id}
-          id="1231"
-          title="Recomendados"
-          description="Recomendados por nuestros socios"
-          featuredCategory="featured"
-        />
+            key={category._id}
+            id={category._id}
+            title={category.name}
+            description={category.short_description}
+            featuredCategory={category.short_description}
+          />
         ))}
 
         {/* Recomendados */}
@@ -126,19 +129,17 @@ const HomeScreen = () => {
         /> */}
 
         {/* Tasty Descuentos */}
-        <FeatureRow
+        {/* <FeatureRow
           id="1232"
           title="Tasty Descuentos"
           description="Descuentos y ofertas disponibles"
-          featuredCategory="featured"
-        />
+        /> */}
         {/* Ofertas cercanas */}
-        <FeatureRow
+        {/* <FeatureRow
           id="1233"
           title="Ofertas cercanas"
           description="Ofertas cercas de ti"
-          featuredCategory="featured"
-        />
+        /> */}
       </ScrollView>
     </SafeAreaProvider>
   );

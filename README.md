@@ -1,6 +1,6 @@
 # deliveroo-copy
 Dependencies to need
-Tutorial link: https://youtu.be/AkEnidfZnCU?t=5092
+Tutorial link: https://youtu.be/AkEnidfZnCU?t=6097
 Tutorial link: https://youtu.be/AkEnidfZnCU?t=4419 for sanity backend
 
 Sanity deploy tutorial
@@ -16,7 +16,7 @@ Install Expo App: https://expo.dev/client
 
 02. Start server Expo
    ```sh
-   expo start
+   expo start 
    ```
 
 03. Help Documentation Press
