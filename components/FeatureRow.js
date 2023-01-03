@@ -4,7 +4,7 @@ import { ArrowRightIcon } from "react-native-heroicons/solid";
 import RestaurantCard from "./RestaurantCard";
 import sanityClient from "../sanity";
 
-const FeatureRow = ({ id, title, description, featuredCategory }) => {
+const FeatureRow = ({ id, title, description }) => {
   const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
@@ -15,11 +15,11 @@ const FeatureRow = ({ id, title, description, featuredCategory }) => {
         ...,
         restaurants[]->{
           ...,
-          dishes[]->, 
+          dishes[]->,
             type->{
               name
             }
-        }
+        },
       }[0]
     `,
         { id }
@@ -30,7 +30,7 @@ const FeatureRow = ({ id, title, description, featuredCategory }) => {
   }, []);
 
   console.log(restaurants);
-
+  
   return (
     <View className="bg-white mx-2 rounded-md mb-2">
       <View className="mt-3 flex-row items-center justify-between px-4">
@@ -48,32 +48,22 @@ const FeatureRow = ({ id, title, description, featuredCategory }) => {
         className="py-3"
       >
         {/* Restaurants Cards */}
+
         {restaurants?.map((restaurant) => (
           <RestaurantCard
             key={restaurant._id}
             id={restaurant._id}
-            imgUrl={restaurant.image}
+            imgUrl={restaurant.image.asset._ref}
             title={restaurant.name}
-            rating={4.5}
-            genre="Japanesse"
-            address="123 Main Street"
-            short_description={restaurant.short_description}
-            dishes={{}}
-          />
+            rating={restaurant.rating}
+            genre={restaurant.type?.name}
+            address={restaurant.address}
+            shortDescription={restaurant.shortDescription}
+            dishes={restaurant.dishes}
+            long={restaurant.long}
+            lat={restaurant.lat}
+          ></RestaurantCard>
         ))}
-
-        <RestaurantCard
-          id={1234}
-          imgUrl="https://links.papareact.com/gn7"
-          title="Yo! Sushi"
-          rating={4.5}
-          genre="Japanesse"
-          address="123 Main Street"
-          short_description="Sushi Poke Bowl and anothers Japanesse Food"
-          dishes={{}}
-          long={20}
-          lat={0}
-        />
       </ScrollView>
     </View>
   );

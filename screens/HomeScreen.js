@@ -47,7 +47,7 @@ const HomeScreen = () => {
       });
   }, []);
 
-  console.log(featuredCategories);
+  // console.log(featuredCategories);
 
   return (
     <SafeAreaProvider style={styles.container}>
