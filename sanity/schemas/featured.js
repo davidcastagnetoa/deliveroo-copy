@@ -1,25 +1,27 @@
-export default ({
+export default {
   name: 'featured',
-  title: 'Featured Menu categories',
+  title: 'featured',
   type: 'document',
+  title: 'Featured menu Category',
   fields: [
     {
-      name: "name",
-      type: "string",
-      title: "Nombre de las categorias destacadas",
+      name: 'name',
+      type: 'string',
+      title: 'Nombre de las categorias destacadas',
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "short_description",
-      type: "string",
-      title: "Descripcion del plato",
-      validation: (Rule) => Rule.max(250),
+      name: 'shortDescription',
+      type: 'string',
+      title: 'Descripcion de las categorias destacadas',
+      validation: (Rule) => Rule.max(200),
     },
     {
-      name: "restaurants",
-      type: "array",
-      title: "Restaurantes",
-      of: [{ type: "reference", to: [{ type: "restaurant" }] }],
+      name: 'restaurants',
+      type: 'array',
+      title: 'Restaurants',
+      of: [{type: 'reference',to: [{type: 'restaurant'}] }],
     },
+    
   ],
-})
+}

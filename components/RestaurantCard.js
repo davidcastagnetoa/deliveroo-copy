@@ -3,21 +3,36 @@ import React from "react";
 import { StarIcon } from "react-native-heroicons/solid";
 import { MapPinIcon } from "react-native-heroicons/solid";
 import { urlFor } from "../sanity";
+import { useNavigation } from "@react-navigation/core";
 
 const RestaurantCard = ({
   id,
   imgUrl,
+  shortDescription,
   title,
   rating,
   genre,
   address,
-  short_description,
-  dishes,
-  long,
-  lat,
+  dishes
 }) => {
+  const navigation = useNavigation();
+
+  console.log({ id, imgUrl, shortDescription, title, rating, genre, address, dishes });
+
   return (
     <TouchableOpacity
+      onPress={() => {
+        navigation.navigate("Restaurant", {
+          id,
+          imgUrl,
+          shortDescription,
+          title,
+          rating,
+          genre,
+          address,
+          dishes
+        });
+      }}
       style={{ elevation: 2 }}
       className="bg-white mr-3 border border-gray-400 rounded-lg mb-1"
     >

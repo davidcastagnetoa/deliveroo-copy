@@ -29,7 +29,7 @@ const FeatureRow = ({ id, title, description }) => {
       });
   }, []);
 
-  console.log(restaurants);
+  // console.log(restaurants);
   
   return (
     <View className="bg-white mx-2 rounded-md mb-2">

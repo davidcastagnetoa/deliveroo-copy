@@ -34,16 +34,10 @@ const Categories = () => {
           <CategoryCard
             key={category._id}
             imgUrl={urlFor(category.image.asset._ref).width(200).url()}
-            // imgUrl="https://links.papareact.com/gn7"
             title={category.name}
           />
         );
       })}
-      {/* <CategoryCard imgUrl="https://links.papareact.com/gn7" title="testing2" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="testing3" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="testing4" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="testing5" />
-      <CategoryCard imgUrl="https://links.papareact.com/gn7" title="testing6" /> */}
     </ScrollView>
   );
 };

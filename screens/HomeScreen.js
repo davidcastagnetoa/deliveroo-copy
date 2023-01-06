@@ -33,13 +33,13 @@ const HomeScreen = () => {
     sanityClient
       .fetch(
         `
-    *[_type == "featured"] {
-      ...,
-      restaurants[]->{
-        ...,
-        dishes[]->
+        *[_type == "featured"]{
+          ...,
+          restaurants[]->{
+              ...,
+              dishes[]->
+          }
       }
-    }
     `
       )
       .then((data) => {
@@ -115,8 +115,8 @@ const HomeScreen = () => {
             key={category._id}
             id={category._id}
             title={category.name}
-            description={category.short_description}
-            featuredCategory={category.short_description}
+            description={category.shortDescription}
+            featuredCategory={category.shortDescription}
           />
         ))}
 
