@@ -11,9 +11,12 @@ import { useNavigation, useRoute } from "@react-navigation/core";
 import { urlFor } from "../sanity";
 import {
   ArrowLeftIcon,
+  ChevronRightIcon,
   MapPinIcon,
+  QuestionMarkCircleIcon,
   StarIcon,
 } from "react-native-heroicons/solid";
+import DishRow from "../components/DishRow";
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
@@ -30,7 +33,6 @@ const RestaurantScreen = () => {
       dishes,
     },
   } = useRoute();
-  
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -86,6 +88,30 @@ const RestaurantScreen = () => {
 
           <Text className=" mt-2 pb-4">{shortDescription}</Text>
         </View>
+
+        <TouchableOpacity className="flex-row items-center space-x-2 p-4 border-y border-gray-300">
+          <QuestionMarkCircleIcon size={20} color="gray" opacity={0.6} />
+          <Text className="pl-2 flex-1 font-bold text-md">
+            ¿Tienes alguna alergia?
+          </Text>
+          <ChevronRightIcon size={20} color="#E42021" />
+        </TouchableOpacity>
+      </View>
+
+      <View className="pb-3 bg-gray-200">
+        <Text className="px-4 pt-6 mb-3 font-bold">Menu</Text>
+        {dishes?.map((dish) => {
+          return (
+          <DishRow
+            key={dish._id}
+            id={dish._id}
+            name={dish.name}
+            shortDescription={dish.shortDescription}
+            price={dish.price}
+            image={dish.image.asset._ref}
+          />
+          );
+        })}
       </View>
     </ScrollView>
   );
@@ -93,4 +119,3 @@ const RestaurantScreen = () => {
 
 export default RestaurantScreen;
 
-const styles = StyleSheet.create({});

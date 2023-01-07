@@ -12,6 +12,7 @@
     "@expo/webpack-config": "^0.17.2",
     "@react-navigation/native": "^6.1.0",
     "@react-navigation/native-stack": "^6.9.5",
+    "@reduxjs/toolkit": "^1.9.1",
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
     "@sanity/vision": "^3.1.1",
@@ -19,6 +20,7 @@
     "expo-status-bar": "~1.4.2",
     "nativewind": "^2.0.11",
     "react": "18.1.0",
+    "react-currency-formatter": "^1.1.0",
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
     "react-native-heroicons": "^3.2.0",
@@ -26,6 +28,7 @@
     "react-native-screens": "~3.18.0",
     "react-native-svg": "13.4.0",
     "react-native-web": "~0.18.9",
+    "react-redux": "^8.0.5",
     "tailwindcss-react-native": "^1.7.10"
   },
   "devDependencies": {
