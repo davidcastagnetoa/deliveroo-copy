@@ -40,7 +40,7 @@ export default {
       name: 'phone',
       type: 'number',
       title: 'Telefono del Restaurante',
-      validation: (Rule) => Rule.required().min(9).max(14).error('Incorrect Format'),
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'rating',

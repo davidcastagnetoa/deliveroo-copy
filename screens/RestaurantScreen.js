@@ -34,6 +34,7 @@ const RestaurantScreen = () => {
       address,
       shortDescription,
       dishes,
+      phone
     },
   } = useRoute();
 
@@ -44,7 +45,7 @@ const RestaurantScreen = () => {
   }, []);
 
   function makePhoneCall() {
-    Linking.openURL(`tel:680771328`);
+    Linking.openURL(`tel:${phone}`); //Here lays restaurant' phone number
   }
 
   console.log(useRoute());

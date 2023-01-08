@@ -13,11 +13,12 @@ const RestaurantCard = ({
   rating,
   genre,
   address,
-  dishes
+  dishes, 
+  phone
 }) => {
   const navigation = useNavigation();
 
-  console.log({ id, imgUrl, shortDescription, title, rating, genre, address, dishes });
+  console.log({ id, imgUrl, shortDescription, title, rating, genre, address, dishes, phone });
 
   return (
     <TouchableOpacity
@@ -30,7 +31,8 @@ const RestaurantCard = ({
           rating,
           genre,
           address,
-          dishes
+          dishes, 
+          phone
         });
       }}
       style={{ elevation: 2 }}
