@@ -1,6 +1,6 @@
 # deliveroo-copy
 Dependencies to need
-Tutorial link: https://youtu.be/AkEnidfZnCU?t=9082
+Tutorial link: https://youtu.be/AkEnidfZnCU?t=9733
 Tutorial link: https://youtu.be/AkEnidfZnCU?t=4419 for sanity backend
 
 Sanity deploy tutorial

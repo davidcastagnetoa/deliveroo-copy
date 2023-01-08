@@ -37,6 +37,12 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'phone',
+      type: 'number',
+      title: 'Telefono del Restaurante',
+      validation: (Rule) => Rule.required().min(9).max(14).error('Incorrect Format'),
+    },
+    {
       name: 'rating',
       type: 'number',
       title: 'Valoracion del restaurante de 1 a 5',
