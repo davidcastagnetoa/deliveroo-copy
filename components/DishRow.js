@@ -9,8 +9,10 @@ import {
   removeFromBasket,
   selectBasketitemsWithId,
 } from "../features/basketSlice";
+import { AppColors } from "../styles/colors";
 
-const DishRow = ({ id, name, shortDescription, price, image }) => {
+const DishRow = ( props ) => {
+  const { id, name, shortDescription, price, image, theme } = props;
   const [isPressed, setIsPressed] = useState(false);
 
   const items = useSelector((state) => selectBasketitemsWithId(state, id));

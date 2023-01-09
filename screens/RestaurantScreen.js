@@ -20,6 +20,7 @@ import {
 } from "react-native-heroicons/solid";
 import DishRow from "../components/DishRow";
 import BasketIcon from "../components/BasketIcon";
+import { AppColors } from "../styles/colors";
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
@@ -34,7 +35,8 @@ const RestaurantScreen = () => {
       address,
       shortDescription,
       dishes,
-      phone
+      phone,
+      theme,
     },
   } = useRoute();
 
@@ -77,22 +79,51 @@ const RestaurantScreen = () => {
           </TouchableOpacity>
         </View>
 
-        <View className="bg-white">
+        <View
+          style={
+            theme === "light"
+              ? { backgroundColor: AppColors.lightBg }
+              : { backgroundColor: AppColors.darkBg }
+          }
+        >
           {/* Restaurant Description Card */}
           <View className="pt-4 px-4">
-            <Text className="text-3xl font-bold">{title}</Text>
+            <Text
+              className="text-3xl font-bold"
+              style={
+                theme === "light"
+                  ? { color: AppColors.lightText }
+                  : { color: AppColors.darkText }
+              }
+            >
+              {title}
+            </Text>
             <View className="flex-row justify-between">
               <View className="flex-column my-1">
                 <View className="flex-row items-center space-x-1">
                   <StarIcon size={22} color="#e83e52" opacity={1} />
-                  <Text className="text-xs text-[#303030]">
+                  <Text
+                    className="text-xs"
+                    style={
+                      theme === "light"
+                        ? { color: AppColors.lightTextCard }
+                        : { color: AppColors.darkTextCard }
+                    }
+                  >
                     <Text className="text-[#e83e52]">{rating}</Text> · {genre}
                   </Text>
                 </View>
 
                 <View className="flex-row items-center space-x-1">
                   <MapPinIcon size={22} color="#e83e52" opacity={1} />
-                  <Text className="text-xs text-[#303030]">
+                  <Text
+                    className="text-xs"
+                    style={
+                      theme === "light"
+                        ? { color: AppColors.lightTextCard }
+                        : { color: AppColors.darkTextCard }
+                    }
+                  >
                     <Text className="whitespace-nowrap text-ellipsis overflow-hidden">
                       {address}
                     </Text>
@@ -105,13 +136,36 @@ const RestaurantScreen = () => {
               </TouchableOpacity>
             </View>
 
-            <Text className=" mt-2 pb-4">{shortDescription}</Text>
+            <Text
+              className=" mt-2 pb-4"
+              style={
+                theme === "light"
+                  ? { color: AppColors.lightText }
+                  : { color: AppColors.darkText }
+              }
+            >
+              {shortDescription}
+            </Text>
           </View>
 
           {/* Allergy Card */}
-          <TouchableOpacity className="flex-row items-center space-x-2 p-4 border-y border-gray-300">
+          <TouchableOpacity
+            className="flex-row items-center space-x-2 p-4 border-y"
+            style={
+              theme === "light"
+                ? { borderColor: "#d1d5db" }
+                : { borderColor: "#434548" }
+            }
+          >
             <QuestionMarkCircleIcon size={20} color="gray" opacity={0.6} />
-            <Text className="pl-2 flex-1 font-bold text-md">
+            <Text
+              className="pl-2 flex-1 font-bold text-md"
+              style={
+                theme === "light"
+                  ? { color: AppColors.lightText }
+                  : { color: AppColors.darkText }
+              }
+            >
               ¿Tienes alguna alergia?
             </Text>
             <ChevronRightIcon size={20} color="#E42021" />
@@ -119,11 +173,19 @@ const RestaurantScreen = () => {
         </View>
 
         {/* Dishes Card */}
-        <View style={{ backgroundColor: "#FFE0E0" }} className="pb-32">
+        <View
+          style={
+            theme === "light"
+              ? { backgroundColor: AppColors.lightCard }
+              : { backgroundColor: AppColors.darkCard }
+          }
+          className="pb-32"
+        >
           <Text className="px-4 pt-6 mb-3 font-bold">Menu</Text>
           {dishes?.map((dish) => {
             return (
               <DishRow
+                theme={theme}
                 key={dish._id}
                 id={dish._id}
                 name={dish.name}

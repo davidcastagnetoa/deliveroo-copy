@@ -18,6 +18,8 @@ import { MagnifyingGlassIcon, UserIcon } from "react-native-heroicons/solid";
 import Categories from "../components/Categories";
 import FeatureRow from "../components/FeatureRow";
 import sanityClient from "../sanity";
+import { Switch } from "react-native-web";
+import { AppColors } from "../styles/colors";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -47,10 +49,16 @@ const HomeScreen = () => {
       });
   }, []);
 
-  // console.log(featuredCategories);
+  const [theme, setTheme] = useState("light");
 
   return (
-    <SafeAreaProvider style={styles.container}>
+    <SafeAreaProvider
+      style={
+        theme === "light"
+          ? styles.container
+          : [styles.container, { backgroundColor: AppColors.darkBgBanner }]
+      }
+    >
       {/* Header */}
       <View
         style={{ elevation: 2 }}
@@ -63,16 +71,24 @@ const HomeScreen = () => {
         />
         {/* Text */}
         <View className="flex flex-1">
-          <Text className="font-bold text-[#333030] text-xs">
+          <Text
+            className="font-bold text-xs"
+            style={{ color: AppColors.darkText }}
+          >
             Entregar Ahora
           </Text>
-          <Text className="font-bold text-xl text-[#E42021]">
+          <Text className="font-bold text-xl text-[#e54a4b]">
             Ubicacion Actual
-            <ChevronDownIcon size={20} color="#E42021" />
+            <ChevronDownIcon size={20} color="#e54a4b" />
           </Text>
         </View>
         {/* User Icon */}
-        <UserIcon size={25} color="#E42021" />
+        <UserIcon size={25} color="#e54a4b" />
+        {/* {Toogle Button Dark Mode} */}
+        <Switch
+          value={theme === "light"}
+          onValueChange={() => setTheme(theme === "light" ? "dark" : "light")}
+        ></Switch>
       </View>
 
       {/* Search */}
@@ -81,7 +97,14 @@ const HomeScreen = () => {
         style={{ elevation: 2 }}
         className="flex flex-row items-center space-x-2 pb-2 mx-2 px-1"
       >
-        <View className="flex flex-row flex-1 rounded-lg space-x-2 bg-[#F2F2F2] p-3">
+        <View
+          className="flex flex-row flex-1 rounded-lg space-x-2 bg-[#F2F2F2] p-3"
+          style={
+            theme === "light"
+              ? { backgroundColor: AppColors.lightCard }
+              : { backgroundColor: AppColors.darkCard }
+          }
+        >
           <MagnifyingGlassIcon color="gray" size={20} />
           <TextInput
             placeholder="Restaurantes y Locales"
@@ -92,27 +115,31 @@ const HomeScreen = () => {
           />
         </View>
         <AdjustmentsHorizontalIcon
-          color="#E42021"
+          color="#e54a4b"
           size={25}
         ></AdjustmentsHorizontalIcon>
       </View>
 
       {/* Body */}
       <ScrollView
-        // className="bg-[#B00020]"
-        className="bg-white"
         contentContainerStyle={{
           paddingBottom: 1,
           gap: 5,
           elevation: -2,
         }}
+        style={
+          theme === "light"
+            ? { backgroundColor: AppColors.lightBg }
+            : { backgroundColor: AppColors.darkBg }
+        }
       >
         {/* Categories */}
-        <Categories />
+        <Categories theme={theme}/>
 
         {/* Feature Rows, or cards */}
         {featuredCategories?.map((category) => (
           <FeatureRow
+            theme={theme}
             key={category._id}
             id={category._id}
             title={category.name}
@@ -120,27 +147,6 @@ const HomeScreen = () => {
             featuredCategory={category.shortDescription}
           />
         ))}
-
-        {/* Recomendados */}
-        {/* <FeatureRow
-          id="1231"
-          title="Recomendados"
-          description="Recomendados por nuestros socios"
-          featuredCategory="featured"
-        /> */}
-
-        {/* Tasty Descuentos */}
-        {/* <FeatureRow
-          id="1232"
-          title="Tasty Descuentos"
-          description="Descuentos y ofertas disponibles"
-        /> */}
-        {/* Ofertas cercanas */}
-        {/* <FeatureRow
-          id="1233"
-          title="Ofertas cercanas"
-          description="Ofertas cercas de ti"
-        /> */}
       </ScrollView>
     </SafeAreaProvider>
   );
@@ -152,7 +158,7 @@ const styles = StyleSheet.create({
     marginLeft: 0,
     marginRight: 0,
     paddingTop: 6,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: AppColors.darkBgBanner,
   },
 });
 

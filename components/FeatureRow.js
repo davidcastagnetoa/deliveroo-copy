@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 import { ArrowRightIcon } from "react-native-heroicons/solid";
 import RestaurantCard from "./RestaurantCard";
 import sanityClient from "../sanity";
+import { AppColors } from "../styles/colors";
 
-const FeatureRow = ({ id, title, description }) => {
+const FeatureRow = (props) => {
   const [restaurants, setRestaurants] = useState([]);
+  const { id, title, description, theme } = props;
 
   useEffect(() => {
     sanityClient
@@ -29,16 +31,41 @@ const FeatureRow = ({ id, title, description }) => {
       });
   }, []);
 
-  // console.log(restaurants);
-  
+  console.log(restaurants);
+
   return (
-    <View className="bg-white mx-2 rounded-md mb-2">
+    <View
+      className="mx-2 rounded-md mb-2"
+      style={
+        theme === "light"
+          ? { backgroundColor: AppColors.lightCard }
+          : { backgroundColor: AppColors.darkCard }
+      }
+    >
       <View className="mt-3 flex-row items-center justify-between px-4">
-        <Text className="font-bold text-lg">{title}</Text>
+        <Text
+          className="font-bold text-lg"
+          style={
+            theme === "light"
+              ? { color: AppColors.lightText }
+              : { color: AppColors.darkText }
+          }
+        >
+          {title}
+        </Text>
         <ArrowRightIcon color="#E42021" />
       </View>
 
-      <Text className="text-sm text-[#333030] px-4 mb-1">{description}</Text>
+      <Text
+        className="text-sm px-4 mb-1"
+        style={
+          theme === "light"
+            ? { color: AppColors.lightTextCard }
+            : { color: AppColors.darkTextCard }
+        }
+      >
+        {description}
+      </Text>
       <ScrollView
         horizontal
         contentContainerStyle={{
@@ -51,6 +78,7 @@ const FeatureRow = ({ id, title, description }) => {
 
         {restaurants?.map((restaurant) => (
           <RestaurantCard
+            theme={theme}
             key={restaurant._id}
             id={restaurant._id}
             imgUrl={restaurant.image.asset._ref}
