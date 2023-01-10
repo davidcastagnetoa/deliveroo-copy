@@ -62,11 +62,12 @@ const RestaurantScreen = () => {
             source={{
               uri: urlFor(imgUrl).url(),
             }}
-            className="w-full h-56 bg-gray-200 p-4"
+            className="w-full h-56 p-4"
             style={{
               width: "100%",
               resizeMode: "cover",
-              backgroundColor: "#FFE7E7",
+              backgroundColor: `${theme === "light" ? "#ebebeb" : "#222222"}`,
+              backgroundImage: `url(${require("../assets/blackPNG.png")})`,
             }}
           />
           <TouchableOpacity
@@ -181,7 +182,16 @@ const RestaurantScreen = () => {
           }
           className="pb-32"
         >
-          <Text className="px-4 pt-6 mb-3 font-bold">Menu</Text>
+          <Text
+            className="px-4 pt-6 mb-3 font-bold"
+            style={
+              theme === "light"
+                ? { color: AppColors.lightText }
+                : { color: AppColors.darkText }
+            }
+          >
+            Menu
+          </Text>
           {dishes?.map((dish) => {
             return (
               <DishRow

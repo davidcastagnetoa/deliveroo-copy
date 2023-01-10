@@ -11,7 +11,7 @@ import {
 } from "../features/basketSlice";
 import { AppColors } from "../styles/colors";
 
-const DishRow = ( props ) => {
+const DishRow = (props) => {
   const { id, name, shortDescription, price, image, theme } = props;
   const [isPressed, setIsPressed] = useState(false);
 
@@ -34,15 +34,49 @@ const DishRow = ( props ) => {
     <>
       <TouchableOpacity
         onPress={() => setIsPressed(!isPressed)}
-        className={`bg-white border p-4 border-gray-200 ${
-          isPressed && "border-b-0"
-        }`}
+        className={` border p-4 ${isPressed && "border-b-0"}`}
+        style={
+          theme === "light"
+            ? {
+                backgroundColor: AppColors.lightBg,
+                borderColor: AppColors.lightBorderCard,
+              }
+            : {
+                backgroundColor: AppColors.darkBg,
+                borderColor: AppColors.darkBorderCard,
+              }
+        }
       >
         <View className="flex-row">
           <View className="flex-1 pr-4 ">
-            <Text className="text-lg mb-1">{name}</Text>
-            <Text className="text-gray-500 text-xs">{shortDescription}</Text>
-            <Text className="text-gray-800 mt-2">
+            <Text
+              className="text-lg mb-1"
+              style={
+                theme === "light"
+                  ? { color: AppColors.lightText }
+                  : { color: AppColors.darkText }
+              }
+            >
+              {name}
+            </Text>
+            <Text
+              className="text-xs"
+              style={
+                theme === "light"
+                  ? { color: AppColors.lightTextCard }
+                  : { color: AppColors.darkTextCard }
+              }
+            >
+              {shortDescription}
+            </Text>
+            <Text
+              className="mt-2"
+              style={
+                theme === "light"
+                  ? { color: AppColors.lightText }
+                  : { color: AppColors.darkText }
+              }
+            >
               <Currency quantity={price} currency="EUR" />
             </Text>
           </View>
@@ -50,8 +84,8 @@ const DishRow = ( props ) => {
             <Image
               style={{
                 borderWidth: 1,
-                borderColor: "#F3F3F4",
-                backgroundColor: "#FFE7E7",
+                borderColor: `${theme === 'light' ? "#d1d5db" : "#CDA500"}`,
+                backgroundColor: `${theme === "light" ? "#ebebeb" : "#222222"}`,
                 borderRadius: 6,
               }}
               className="h-24 w-24 p-4"
@@ -76,10 +110,7 @@ const DishRow = ( props ) => {
             <Text>{items.length}</Text>
 
             <TouchableOpacity onPress={addItemToBasket}>
-              <PlusCircleIcon
-                color="#E42021"
-                size={38}
-              />
+              <PlusCircleIcon color="#E42021" size={38} />
             </TouchableOpacity>
           </View>
         </View>

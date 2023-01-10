@@ -11,8 +11,9 @@ export const AppColors = {
     darkText: "#D9D9D9",
     lightTextCard: "#333030",
     darkTextCard: "#BABABA",
-    lightBorderCard: "#9ca3af",
-    darkBorderCard: "#848B95",
+    lightBorderCard: "#d1d5db",
+    darkBorderCard: "#434548",
     lightRed: "#e42021",
     darkRed: "#e54a4b",
 }
+    
