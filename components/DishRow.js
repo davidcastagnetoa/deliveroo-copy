@@ -84,7 +84,7 @@ const DishRow = (props) => {
             <Image
               style={{
                 borderWidth: 1,
-                borderColor: `${theme === 'light' ? "#d1d5db" : "#CDA500"}`,
+                borderColor: `${theme === "light" ? "#d1d5db" : "#CDA500"}`,
                 backgroundColor: `${theme === "light" ? "#ebebeb" : "#222222"}`,
                 borderRadius: 6,
               }}
@@ -95,7 +95,20 @@ const DishRow = (props) => {
         </View>
       </TouchableOpacity>
       {isPressed && (
-        <View className="bg-white px-4">
+        <View
+          className="px-4"
+          style={
+            theme === "light"
+              ? {
+                  backgroundColor: AppColors.lightBg,
+                  borderColor: AppColors.lightBorderCard,
+                }
+              : {
+                  backgroundColor: AppColors.darkBg,
+                  borderColor: AppColors.darkBorderCard,
+                }
+          }
+        >
           <View className="flex-row items-center space-x-2 pb-3">
             <TouchableOpacity
               disabled={!items.length}
@@ -107,7 +120,15 @@ const DishRow = (props) => {
                 size={38}
               />
             </TouchableOpacity>
-            <Text>{items.length}</Text>
+            <Text
+              style={
+                theme === "light"
+                  ? { color: AppColors.lightText }
+                  : { color: AppColors.darkText }
+              }
+            >
+              {items.length}
+            </Text>
 
             <TouchableOpacity onPress={addItemToBasket}>
               <PlusCircleIcon color="#E42021" size={38} />
