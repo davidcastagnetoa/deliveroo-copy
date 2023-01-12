@@ -1,15 +1,16 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectBasketitems, basketTotalItems } from "../features/basketSlice";
 import { useNavigation } from "@react-navigation/native";
-import { TouchableOpacity } from "react-native-web";
 import Currency from "react-currency-formatter";
 
 const BasketIcon = () => {
   const items = useSelector(selectBasketitems);
   const navigation = useNavigation();
   const basketTotal = useSelector(basketTotalItems);
+
+  if (items.length === 0) return null;
 
   return (
     <View
@@ -18,7 +19,10 @@ const BasketIcon = () => {
         elevation: 2,
       }}
     >
-      <TouchableOpacity className="bg-[#e42021] mx-5 p-3 rounded-lg flex-row items-center space-x-1">
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Basket")}
+        className="bg-[#e42021] mx-5 p-3 rounded-lg flex-row items-center space-x-1"
+      >
         <Text className="text-white font-extrabold text-lg bg-[#e83e52] py-1 px-2">
           {items.length}
         </Text>

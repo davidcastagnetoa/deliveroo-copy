@@ -3,6 +3,7 @@ import { Text, View } from "react-native";
 import { TailwindProvider } from "tailwindcss-react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import BasketScreen from "./screens/BasketScreen";
 import HomeScreen from "./screens/HomeScreen";
 import RestaurantScreen from "./screens/RestaurantScreen";
 import { Provider } from "react-redux";
@@ -19,7 +20,7 @@ export default function App() {
             {/* Screens */}
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Restaurant" component={RestaurantScreen}/>
-            {/* <Stack.Screen name="BasketScreen" component={BasketScreen} /> */}
+            <Stack.Screen name="Basket" component={BasketScreen} options={{ presentation: 'modal', headerShown: false}}/>
           </Stack.Navigator>
         </TailwindProvider>
       </Provider>

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { useNavigation, useRoute } from "@react-navigation/core";
 import { urlFor } from "../sanity";
 import {
@@ -21,9 +21,12 @@ import {
 import DishRow from "../components/DishRow";
 import BasketIcon from "../components/BasketIcon";
 import { AppColors } from "../styles/colors";
+import { useDispatch } from "react-redux";
+import { setRestaurant } from "../features/restaurantSlice";
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const {
     params: {
@@ -40,6 +43,23 @@ const RestaurantScreen = () => {
     },
   } = useRoute();
 
+  useEffect(() => {
+    dispatch(
+      setRestaurant({
+        id,
+        imgUrl,
+        title,
+        rating,
+        genre,
+        address,
+        shortDescription,
+        dishes,
+        phone,
+        theme,
+      })
+    );
+  }, [dispatch]);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -54,10 +74,30 @@ const RestaurantScreen = () => {
 
   return (
     <>
+      {/* return page button */}
       <BasketIcon />
 
       <ScrollView>
-        <View className="relative">
+        <View
+          className="relative"
+          style={{
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: `${theme === "light" ? "#ebebeb" : "#222222"}`,
+          }}
+        >
+          <Image
+            source={require("../assets/blackPNG.png")}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              bottom: 0,
+              right: 0,
+            }}
+            resizeMode={"cover"}
+          />
           <Image
             source={{
               uri: urlFor(imgUrl).url(),
@@ -66,10 +106,9 @@ const RestaurantScreen = () => {
             style={{
               width: "100%",
               resizeMode: "cover",
-              backgroundColor: `${theme === "light" ? "#ebebeb" : "#222222"}`,
-              backgroundImage: `url(${require("../assets/blackPNG.png")})`,
             }}
           />
+          {/* Return back button */}
           <TouchableOpacity
             onPress={() => {
               navigation.goBack();

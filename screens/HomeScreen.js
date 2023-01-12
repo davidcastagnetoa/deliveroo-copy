@@ -6,6 +6,7 @@ import {
   Image,
   TextInput,
   ScrollView,
+  Switch
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/core";
@@ -18,7 +19,6 @@ import { MagnifyingGlassIcon, UserIcon } from "react-native-heroicons/solid";
 import Categories from "../components/Categories";
 import FeatureRow from "../components/FeatureRow";
 import sanityClient from "../sanity";
-import { Switch } from "react-native-web";
 import { AppColors } from "../styles/colors";
 
 const HomeScreen = () => {
