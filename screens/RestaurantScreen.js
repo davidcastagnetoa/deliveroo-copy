@@ -40,6 +40,8 @@ const RestaurantScreen = () => {
       dishes,
       phone,
       theme,
+      long,
+      lat
     },
   } = useRoute();
 
@@ -56,6 +58,8 @@ const RestaurantScreen = () => {
         dishes,
         phone,
         theme,
+        long,
+        lat
       })
     );
   }, [dispatch]);
@@ -75,7 +79,7 @@ const RestaurantScreen = () => {
   return (
     <>
       {/* return page button */}
-      <BasketIcon />
+      <BasketIcon theme={theme} />
 
       <ScrollView>
         <View
@@ -141,7 +145,7 @@ const RestaurantScreen = () => {
             <View className="flex-row justify-between">
               <View className="flex-column my-1">
                 <View className="flex-row items-center space-x-1">
-                  <StarIcon size={22} color="#e83e52" opacity={1} />
+                  <StarIcon size={22} color={ theme === "light" ? AppColors.lightRed : AppColors.darkRed } opacity={1} />
                   <Text
                     className="text-xs"
                     style={
@@ -150,12 +154,21 @@ const RestaurantScreen = () => {
                         : { color: AppColors.darkTextCard }
                     }
                   >
-                    <Text className="text-[#e83e52]">{rating}</Text> · {genre}
+                    <Text
+                      style={
+                        theme === "light"
+                          ? { color: AppColors.lightRed }
+                          : { color: AppColors.darkRed }
+                      }
+                    >
+                      {rating}
+                    </Text>{" "}
+                    · {genre}
                   </Text>
                 </View>
 
                 <View className="flex-row items-center space-x-1">
-                  <MapPinIcon size={22} color="#e83e52" opacity={1} />
+                  <MapPinIcon size={22} color={ theme === "light" ? AppColors.lightRed : AppColors.darkRed } opacity={1} />
                   <Text
                     className="text-xs"
                     style={
@@ -172,7 +185,7 @@ const RestaurantScreen = () => {
               </View>
 
               <TouchableOpacity className="pr-3" onPress={makePhoneCall}>
-                <PhoneIcon size={24} color="#e42021" opacity={1} />
+                <PhoneIcon size={24} color={ theme === "light" ? AppColors.lightRed : AppColors.darkRed } opacity={1} />
               </TouchableOpacity>
             </View>
 
@@ -208,7 +221,7 @@ const RestaurantScreen = () => {
             >
               ¿Tienes alguna alergia?
             </Text>
-            <ChevronRightIcon size={20} color="#E42021" />
+            <ChevronRightIcon size={20} color={ theme === "light" ? AppColors.lightRed : AppColors.darkRed } />
           </TouchableOpacity>
         </View>
 

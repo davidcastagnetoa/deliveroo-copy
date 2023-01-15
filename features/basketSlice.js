@@ -21,7 +21,6 @@ export const basketSlice = createSlice({
       else{
         console.warn(`Cant resolve product (id: ${action.payload.id}) as its not in basket`);
       }
-
       state.items = newBasket;
     }
   },
@@ -32,5 +31,4 @@ export const { addToBasket, removeFromBasket } = basketSlice.actions;
 export const selectBasketitems = (state) => state.basket.items;
 export const selectBasketitemsWithId = (state, id) => state.basket.items.filter((item)=> item.id === id);
 export const basketTotalItems = (state) => state.basket.items.reduce(( total, item )=> total = total + item.price, 0);
-
 export default basketSlice.reducer

@@ -11,7 +11,9 @@ const initialState = {
     shortDescription: null,
     phone: null,
     dishes: null,
-    theme: null
+    theme: null,
+    long: null,
+    lat: null
   },
 };
 

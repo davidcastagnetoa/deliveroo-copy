@@ -154,7 +154,7 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight + 12,
+    marginTop: StatusBar.currentHeight + 4,
     marginLeft: 0,
     marginRight: 0,
     paddingTop: 6,

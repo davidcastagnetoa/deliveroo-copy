@@ -9,7 +9,7 @@ export const AppColors = {
     darkButton: "#CF6679",
     lightText: "#000000",
     darkText: "#D9D9D9",
-    lightTextCard: "#333030",
+    lightTextCard: "#787C7E",
     darkTextCard: "#BABABA",
     lightBorderCard: "#d1d5db",
     darkBorderCard: "#434548",

@@ -18,6 +18,8 @@ const RestaurantCard = (props) => {
     dishes,
     phone,
     theme,
+    long,
+    lat
   } = props;
   const navigation = useNavigation();
 
@@ -32,6 +34,8 @@ const RestaurantCard = (props) => {
     dishes,
     phone,
     theme,
+    long,
+    lat
   });
 
   return (
@@ -47,7 +51,9 @@ const RestaurantCard = (props) => {
           address,
           dishes,
           phone,
-          theme
+          theme,
+          long,
+          lat
         });
       }}
       style={

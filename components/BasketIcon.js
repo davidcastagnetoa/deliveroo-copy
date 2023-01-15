@@ -4,8 +4,10 @@ import { useSelector } from "react-redux";
 import { selectBasketitems, basketTotalItems } from "../features/basketSlice";
 import { useNavigation } from "@react-navigation/native";
 import Currency from "react-currency-formatter";
+import { AppColors } from "../styles/colors";
 
-const BasketIcon = () => {
+const BasketIcon = ( props ) => {
+  const { theme } = props;
   const items = useSelector(selectBasketitems);
   const navigation = useNavigation();
   const basketTotal = useSelector(basketTotalItems);
@@ -21,7 +23,8 @@ const BasketIcon = () => {
     >
       <TouchableOpacity
         onPress={() => navigation.navigate("Basket")}
-        className="bg-[#e42021] mx-5 p-3 rounded-lg flex-row items-center space-x-1"
+        className="mx-5 p-3 rounded-lg flex-row items-center space-x-1"
+        style={ theme === "light" ? { backgroundColor: AppColors.lightRed } : { backgroundColor: AppColors.darkRed } }
       >
         <Text className="text-white font-extrabold text-lg bg-[#e83e52] py-1 px-2">
           {items.length}
